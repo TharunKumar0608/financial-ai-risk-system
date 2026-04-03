@@ -13,16 +13,18 @@ st.markdown("Real-time Financial Diagnostics & Predictive Risk Analysis")
 
 # ---------------- LOAD MODEL ----------------
 try:
-    BASE_DIR = os.path.dirname(__file__)
+    import os
 
-    model_path = os.path.join(BASE_DIR, "financial_risk_model.pkl")
-    scaler_path = os.path.join(BASE_DIR, "scaler.pkl")
+    st.write("Current Directory:", os.getcwd())
+    st.write("Files in directory:", os.listdir())
 
-    model = pickle.load(open(model_path, "rb"))
-    scaler = pickle.load(open(scaler_path, "rb"))
+    model = pickle.load(open("financial_risk_model.pkl", "rb"))
+    scaler = pickle.load(open("scaler.pkl", "rb"))
 
-except:
-    st.error("❌ Model or scaler file not found")
+    st.success("✅ Model loaded successfully")
+
+except Exception as e:
+    st.error(f"❌ Error: {e}")
     st.stop()
 
 # ---------------- SIDEBAR INPUTS ----------------
