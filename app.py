@@ -50,9 +50,9 @@ if income == 0:
     st.warning("Income cannot be zero")
     st.stop()
 
-expense_ratio = expenses / income
-savings_rate = savings / income
-investment_rate = investment / income
+expense_ratio = min(expenses / income, 1)
+savings_rate = min(savings / income, 1)
+investment_rate = min(investment / income, 1)
 credit_util = credit_utilization / 100
 
 # ---------------- PREDICT BUTTON ----------------
