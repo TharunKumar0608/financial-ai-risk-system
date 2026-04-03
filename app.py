@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import numpy as np
 import pickle
@@ -12,8 +13,14 @@ st.markdown("Real-time Financial Diagnostics & Predictive Risk Analysis")
 
 # ---------------- LOAD MODEL ----------------
 try:
-    model = pickle.load(open("financial_risk_model.pkl", "rb"))
-    scaler = pickle.load(open("scaler.pkl", "rb"))
+    BASE_DIR = os.path.dirname(__file__)
+
+    model_path = os.path.join(BASE_DIR, "financial_risk_model.pkl")
+    scaler_path = os.path.join(BASE_DIR, "scaler.pkl")
+
+    model = pickle.load(open(model_path, "rb"))
+    scaler = pickle.load(open(scaler_path, "rb"))
+
 except:
     st.error("❌ Model or scaler file not found")
     st.stop()
