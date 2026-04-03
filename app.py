@@ -91,10 +91,10 @@ if st.sidebar.button("🚀 Predict Financial Risk"):
 
     # ---------------- HEALTH SCORE ----------------
     health_score = int(
-        (savings_rate * 40) +
-        (investment_rate * 30) +
-        ((1 - expense_ratio) * 30)
-    )
+    (savings_rate * 40) +
+    (investment_rate * 30) +
+    ((1 - expense_ratio) * 30)
+)
 
     # ---------------- DASHBOARD ----------------
     st.subheader("📊 Prediction Summary")
